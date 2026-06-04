@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" class="logo-icon">
+                    <path d="M50 15 C30 15 15 30 15 50 C15 70 30 85 50 85 C70 85 85 70 85 50" stroke="#e60000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="80 120"/>
+                    <path d="M50 25 C35 25 25 35 25 50 C25 65 35 75 50 75 C65 75 75 65 75 50" stroke="#e60000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="60 100"/>
+                    <path d="M50 35 C42 35 35 42 35 50 C35 58 42 65 50 65 C58 65 65 58 65 50" stroke="#e60000" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="40 80"/>
+                    <path d="M50 45 C47 45 45 47 45 50 C45 53 47 55 50 55" stroke="#e60000" stroke-width="8" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="next">Next</span><span class="gen">Gen</span><br>
+                    <span class="tech">Technology</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <div class="stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffd700" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>0</span>
+            </div>
+            <a href="subscription.html" class="profile-circle">N</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M15 18l-6-6 6-6"/></svg>
+            Back
+        </a>
+        
+        <h1 class="page-title">Subscription</h1>
+
+        <div class="plan-status-card">
+            <div class="status-header">
+                <h3>Free Plan (Expired) 
+                    <svg class="info-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </h3>
+                <button class="btn-renew">Renew</button>
+            </div>
+            <p>Credits: <span style="color:#ffd700; margin: 0 4px;">⭐</span> 0</p>
+        </div>
+
+        <div class="accordion">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>Current Balance Details</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body">
+                <table class="balance-table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Balance</th>
+                            <th>Start Time</th>
+                            <th>Expiration</th>
+                            <th>Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3,000</td>
+                            <td>0</td>
+                            <td>3 months ago</td>
+                            <td>Expired</td>
+                            <td>Premium (MONTHLY)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <span>Showing 1 of 1 grants</span>
+                    <div class="pagination-controls">
+                        <span>Previous</span>
+                        <span style="color: white; font-weight: 600;">Page 1 of 1</span>
+                        <span>Next</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="billing-toggle">
+            <span style="color: #0d6efd;">🎁</span> Save Up To 50% with Annual Billing
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Basic Plan -->
+            <div class="pricing-card basic">
+                <div class="card-tier">Hobbyist & Creators</div>
+                <h2>Basic</h2>
+                <div class="price"><span class="old-price">$9.99</span> $4.99 <span class="period">/month</span></div>
+                <button class="btn-plan">Get Started</button>
+                <ul class="features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 300 Credits Per Month</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Over Free Users</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast Video Generation: Up to 3 at Once</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Video Quality: Medium</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max FPS: 45 FPS</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max Duration: 7s</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Access All Templates (New Releases Daily)</li>
+                </ul>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="pricing-card pro">
+                <div class="popular-badge">MOST POPULAR</div>
+                <div class="card-tier">Professionals</div>
+                <h2>Pro</h2>
+                <div class="price"><span class="old-price">$29.99</span> $14.99 <span class="period">/month</span></div>
+                <a href="recharge.html"><button class="btn-plan">Get Started</button></a>
+                <ul class="features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1500 Credits Per Month</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Over Free Users</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast Video Generation: Up to 10 at Once</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Video Quality: High</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max FPS: 60 FPS</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max Duration: 12s</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Access All Templates (New Releases Daily)</li>
+                </ul>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card premium">
+                <div class="card-tier">Studios & Startups</div>
+                <h2>Premium</h2>
+                <div class="price"><span class="old-price">$49.99</span> $24.99 <span class="period">/month</span></div>
+                <button class="btn-plan">Get Started</button>
+                <ul class="features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 3000 Credits Per Month</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Over Free Users</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast Video Generation: Up to 15 at Once</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Video Quality: High</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max FPS: 60 FPS</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Max Duration: 12s</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Access All Templates (New Releases Daily)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
