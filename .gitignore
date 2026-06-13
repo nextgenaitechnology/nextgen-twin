@@ -1,0 +1,7 @@
+*.mp4
+*.cjs
+*.log
+.agents/
+tests/
+node_modules/
+.netlify/

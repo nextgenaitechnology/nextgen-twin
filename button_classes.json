@@ -1,0 +1,980 @@
+[
+  {
+    "file": "become-creator.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Soft Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Provocative Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Wild Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Modest Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Naughty Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Nerdy Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "character-studio.html",
+    "text": "Interact with Top Model Nano",
+    "className": "persona-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "+",
+    "className": "icon-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "",
+    "className": "icon-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "",
+    "className": "icon-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "",
+    "className": "icon-btn attach-btn",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "",
+    "className": "icon-btn generate-shortcut",
+    "type": null
+  },
+  {
+    "file": "chat.html",
+    "text": "Send",
+    "className": "btn-primary send-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "All Gens",
+    "className": "pill active",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Favorites",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Published",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Photos",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Videos",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Publish",
+    "className": "btn-primary publish-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Download",
+    "className": "btn-primary download-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Publish",
+    "className": "btn-primary publish-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Publish",
+    "className": "btn-primary publish-btn",
+    "type": null
+  },
+  {
+    "file": "collection.html",
+    "text": "Publish",
+    "className": "btn-primary publish-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share Generation",
+    "className": "btn-primary share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "5.7k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "76",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "9.9k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "54",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "5.2k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "178",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "9.6k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "55",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "329",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "368",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "9.4k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "96",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "460",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "300",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "2.4k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "364",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "4.9k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "155",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "300",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "148",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "582",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "91",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "401",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "202",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "8.9k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "226",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "1.6k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "294",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "687",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "128",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "4.3k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "380",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "486",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "271",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "5.7k",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "222",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "595",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "193",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "443",
+    "className": "action-btn liked",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "203",
+    "className": "action-btn",
+    "type": null
+  },
+  {
+    "file": "community.html",
+    "text": "Share",
+    "className": "action-btn share-btn",
+    "type": null
+  },
+  {
+    "file": "creator.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "creator.html",
+    "text": "Follow",
+    "className": "follow-btn",
+    "type": null
+  },
+  {
+    "file": "creator.html",
+    "text": "💰 Send Tip",
+    "className": "tip-btn",
+    "type": null
+  },
+  {
+    "file": "daily-rewards.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "daily-rewards.html",
+    "text": "SPIN THE WHEEL",
+    "className": "spin-btn",
+    "type": null
+  },
+  {
+    "file": "daily-rewards.html",
+    "text": "Claim Credits",
+    "className": "reward-claim-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Video Gen",
+    "className": "feed-tab active",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Face Swap",
+    "className": "feed-tab",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "In-Paint (Edit)",
+    "className": "feed-tab",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "24fps",
+    "className": "dur-btn active",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "30fps",
+    "className": "dur-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "60fps (Smooth)",
+    "className": "dur-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Standard",
+    "className": "dur-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Advanced",
+    "className": "dur-btn active",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Ultimate 4K",
+    "className": "dur-btn",
+    "type": null
+  },
+  {
+    "file": "editor.html",
+    "text": "Generate Video",
+    "className": "btn-primary start-btn generate-btn",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "",
+    "className": "icon-btn",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "",
+    "className": "icon-btn",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "Trending",
+    "className": "pill active",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "New",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "Top Rated",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "Most Favorited",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "VIP Creators",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "4K",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "explore.html",
+    "text": "Picture",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "login.html",
+    "text": "Log In",
+    "className": "btn-primary",
+    "type": "submit"
+  },
+  {
+    "file": "login.html",
+    "text": "Google",
+    "className": "btn-social",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "Share",
+    "className": "share-earn-btn no-toast share-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "Generate ★ 30",
+    "className": "generate-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "",
+    "className": "close-modal-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "Pay with Apple Pay",
+    "className": "generate-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "",
+    "className": "close-modal-btn",
+    "type": null
+  },
+  {
+    "file": "media-detail.html",
+    "text": "Copy Link",
+    "className": "generate-btn",
+    "type": null
+  },
+  {
+    "file": "queue.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "queue.html",
+    "text": "View",
+    "className": "queue-action-btn",
+    "type": null
+  },
+  {
+    "file": "queue.html",
+    "text": "View",
+    "className": "queue-action-btn",
+    "type": null
+  },
+  {
+    "file": "queue.html",
+    "text": "Retry",
+    "className": "queue-action-btn retry-btn",
+    "type": null
+  },
+  {
+    "file": "recharge.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "recharge.html",
+    "text": "Get more Credits",
+    "className": "btn-plan",
+    "type": null
+  },
+  {
+    "file": "referral.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "referral.html",
+    "text": "Copy VIP Link",
+    "className": "btn-primary copy-btn",
+    "type": null
+  },
+  {
+    "file": "referral.html",
+    "text": "Withdraw Royalties",
+    "className": "btn-primary withdraw-btn",
+    "type": null
+  },
+  {
+    "file": "register.html",
+    "text": "Create Account",
+    "className": "btn-primary",
+    "type": "submit"
+  },
+  {
+    "file": "register.html",
+    "text": "Google",
+    "className": "btn-social",
+    "type": null
+  },
+  {
+    "file": "studio.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "studio.html",
+    "text": "Withdraw USDT",
+    "className": "btn-primary withdraw-btn",
+    "type": null
+  },
+  {
+    "file": "studio.html",
+    "text": "Start Chat",
+    "className": "btn-primary",
+    "type": null
+  },
+  {
+    "file": "subscription.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "subscription.html",
+    "text": "Current Plan",
+    "className": "btn-tier btn-basic",
+    "type": null
+  },
+  {
+    "file": "subscription.html",
+    "text": "Upgrade to Elite",
+    "className": "btn-tier btn-elite",
+    "type": null
+  },
+  {
+    "file": "subscription.html",
+    "text": "Become a Legend",
+    "className": "btn-tier btn-legend",
+    "type": null
+  },
+  {
+    "file": "telegram.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "All",
+    "className": "pill active",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "Trending",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "New",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "Top Rated",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "Most Favorited",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "VIP Creators",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "4K",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "top-creators.html",
+    "text": "Picture",
+    "className": "pill",
+    "type": null
+  },
+  {
+    "file": "train-new.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "train-new.html",
+    "text": "5s",
+    "className": "dur-btn active",
+    "type": null
+  },
+  {
+    "file": "train-new.html",
+    "text": "8s",
+    "className": "dur-btn",
+    "type": null
+  },
+  {
+    "file": "train-new.html",
+    "text": "Delete",
+    "className": "btn-text delete-btn",
+    "type": null
+  },
+  {
+    "file": "train-new.html",
+    "text": "Start Training",
+    "className": "btn-primary start-btn",
+    "type": null
+  },
+  {
+    "file": "train.html",
+    "text": "☰",
+    "className": "hamburger-btn",
+    "type": null
+  },
+  {
+    "file": "train.html",
+    "text": "🎤 Record in Browser",
+    "className": "btn-primary",
+    "type": null
+  },
+  {
+    "file": "train.html",
+    "text": "Upload .WAV / .MP3",
+    "className": "btn-primary",
+    "type": null
+  },
+  {
+    "file": "train.html",
+    "text": "Upload WhatsApp/OF Chat Logs (.TXT)",
+    "className": "btn-primary",
+    "type": null
+  },
+  {
+    "file": "train.html",
+    "text": "INITIATE NEURAL TRAINING",
+    "className": "btn-primary",
+    "type": null
+  }
+]

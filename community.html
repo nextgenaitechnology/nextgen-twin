@@ -1,0 +1,631 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Community Feed - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .feed-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+        
+        .post-card {
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+        
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e60000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+        
+        .post-user {
+            flex-grow: 1;
+        }
+        
+        .post-username {
+            font-weight: 700;
+            font-size: 15px;
+            color: #fff;
+        }
+        
+        .post-time {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .post-text {
+            padding: 16px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ccc;
+        }
+        
+        .post-media img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .post-actions {
+            display: flex;
+            padding: 16px;
+            gap: 24px;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .action-btn:hover {
+            color: #fff;
+        }
+        
+        .action-btn.liked {
+            color: #e60000;
+        }
+    </style>
+    <meta name="theme-color" content="#0a0b0c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0a0b0c">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-middle" id="mobileMenu">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="subscription.html" class="nav-link" style="color: #ffd700;">⭐ VIP Access</a>
+            <a href="collection.html" class="nav-link">Collection</a>
+            <a href="top-creators.html" class="nav-link">Top Creators</a>
+            <a href="community.html" class="nav-link active">Community</a>
+            <a href="character-studio.html" class="nav-link">Identity Hub</a>
+            <a href="studio.html" class="nav-link">Studio</a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn">☰</button>
+            <a href="daily-rewards.html" class="nav-link" style="color: #ffd700;">🎰</a>
+            <div style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; color: #e60000; cursor: pointer;">
+                ★ 450
+            </div>
+            <a href="referral.html" class="btn-primary" style="margin-right:16px; padding:8px 16px; background: #333; border: none;">Invite &amp; Earn</a>
+            <a href="login.html" class="profile-circle">N</a>
+        </div>
+    </nav>
+
+    <div class="feed-container">
+        <div style="margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="nexa-title" style="font-size: 32px; margin: 0;">Fan Community</h1>
+            <button class="btn-primary share-btn" style="padding: 10px 20px;">Share Generation</button>
+        </div>
+
+        
+        
+        <!-- Generated Post 1 -->
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #45b7d1; color: #000;">G</div>
+                <div class="post-user">
+                    <div class="post-username">Goth Raven <span style="color:#888; font-weight:400; font-size:13px;">@GothRaven</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">22 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                While other platforms ban creators, NextGenTwin gives us the freedom to monetize our VERIFIED likeness safely. The NSFW capabilities are exactly what my fans asked for!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Bc_Doggystyle_Cg_1 (1).jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 5.7k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 76</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 2 -->
+        <a href="media-detail.html?id=provocative" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #f7fff7; color: #000;">R</div>
+                <div class="post-user">
+                    <div class="post-username">Ruby Rose <span style="color:#888; font-weight:400; font-size:13px;">@RubyRose_OF</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">10 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I was tired of getting banned on mainstream AI sites for creating artistic NSFW content. Here, my verified identity is protected, and my fans get what they want. Win-win!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Sexy_France_Fan.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 9.9k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 54</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 3 -->
+        <a href="media-detail.html?id=soft" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #45b7d1; color: #000;">G</div>
+                <div class="post-user">
+                    <div class="post-username">Goth Raven <span style="color:#888; font-weight:400; font-size:13px;">@GothRaven</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">2 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I used to spend hours trying to get the right pose. With the prompt assist here, it's done in 5 seconds. And because I verified my identity, I know it's safe.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Close_up_Anal.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 5.2k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 178</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 4 -->
+        <a href="media-detail.html?id=wild" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffe66d; color: #000;">M</div>
+                <div class="post-user">
+                    <div class="post-username">Mia Secret <span style="color:#888; font-weight:400; font-size:13px;">@MiaSecret_</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">10 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                The fact that my fans can use my official template and it just WORKS without messing up my face... 🤯 Best passive income I've ever made. 100% creator controlled!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Cream_Pouring.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 9.6k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 55</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 5 -->
+        <a href="media-detail.html?id=naughty" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #f7fff7; color: #000;">R</div>
+                <div class="post-user">
+                    <div class="post-username">Ruby Rose <span style="color:#888; font-weight:400; font-size:13px;">@RubyRose_OF</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">7 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I used to spend hours trying to get the right pose. With the prompt assist here, it's done in 5 seconds. And because I verified my identity, I know it's safe.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Forced_Blowjob.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 329</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 368</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 6 -->
+        <a href="media-detail.html?id=topmodel" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffc75f; color: #000;">Z</div>
+                <div class="post-user">
+                    <div class="post-username">Zoe Wild <span style="color:#888; font-weight:400; font-size:13px;">@ZoeWild</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">7 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Where others refuse to innovate, NextGenTwin embraces adult creators. It's so refreshing to offer explicit content that is 100% consensual and verified.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Eye_Contact_Bbc_Tease_–_Hands_Lips.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 9.4k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 96</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 7 -->
+        <a href="media-detail.html?id=nerdy" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #4ecdc4; color: #000;">L</div>
+                <div class="post-user">
+                    <div class="post-username">Lexi Spark <span style="color:#888; font-weight:400; font-size:13px;">@LexiSpark</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">5 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Stop wasting time with bots that don't understand context. NextGenTwin processes my authorized templates perfectly. Pure perfection and complete creative freedom.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Kissing_Doggystyle.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 460</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 300</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 8 -->
+        <a href="media-detail.html?id=modest" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #d65db1; color: #000;">B</div>
+                <div class="post-user">
+                    <div class="post-username">Bella Thorn <span style="color:#888; font-weight:400; font-size:13px;">@BellaT_OF</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">10 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Finally, an AI platform built FOR adult creators! We opt-in, we set the rules, and our fans get the high-quality customized content they desire. Safe, consensual, and highly profitable.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/POV_Doggy_Style_From_His_Eyes.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 2.4k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 364</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 9 -->
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ff6b6b; color: #000;">L</div>
+                <div class="post-user">
+                    <div class="post-username">Luna Love <span style="color:#888; font-weight:400; font-size:13px;">@LunaLoveX</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">11 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                While other platforms ban creators, NextGenTwin gives us the freedom to monetize our VERIFIED likeness safely. The NSFW capabilities are exactly what my fans asked for!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Kneeling_Cumshot_After_Handjob.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 4.9k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 155</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 10 -->
+        <a href="media-detail.html?id=provocative" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffe66d; color: #000;">M</div>
+                <div class="post-user">
+                    <div class="post-username">Mia Secret <span style="color:#888; font-weight:400; font-size:13px;">@MiaSecret_</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">20 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I was tired of getting banned on mainstream AI sites for creating artistic NSFW content. Here, my verified identity is protected, and my fans get what they want. Win-win!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Bbc_Kneeling_POV_Blowjob.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 300</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 148</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 11 -->
+        <a href="media-detail.html?id=soft" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffe66d; color: #000;">M</div>
+                <div class="post-user">
+                    <div class="post-username">Mia Secret <span style="color:#888; font-weight:400; font-size:13px;">@MiaSecret_</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">12 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I used to spend hours trying to get the right pose. With the prompt assist here, it's done in 5 seconds. And because I verified my identity, I know it's safe.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Wild_sex_standing_doggystyle.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 582</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 91</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 12 -->
+        <a href="media-detail.html?id=wild" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffe66d; color: #000;">M</div>
+                <div class="post-user">
+                    <div class="post-username">Mia Secret <span style="color:#888; font-weight:400; font-size:13px;">@MiaSecret_</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">1 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                While other platforms ban creators, NextGenTwin gives us the freedom to monetize our VERIFIED likeness safely. The NSFW capabilities are exactly what my fans asked for!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Standing_Sex_V1.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 401</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 202</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 13 -->
+        <a href="media-detail.html?id=naughty" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #4ecdc4; color: #000;">L</div>
+                <div class="post-user">
+                    <div class="post-username">Lexi Spark <span style="color:#888; font-weight:400; font-size:13px;">@LexiSpark</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">14 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I was tired of getting banned on mainstream AI sites for creating artistic NSFW content. Here, my verified identity is protected, and my fans get what they want. Win-win!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Blowjob_in_the_Car_V2.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 8.9k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 226</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 14 -->
+        <a href="media-detail.html?id=topmodel" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #4ecdc4; color: #000;">L</div>
+                <div class="post-user">
+                    <div class="post-username">Lexi Spark <span style="color:#888; font-weight:400; font-size:13px;">@LexiSpark</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">2 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                I was tired of getting banned on mainstream AI sites for creating artistic NSFW content. Here, my verified identity is protected, and my fans get what they want. Win-win!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Exposed_Slut_V2.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.6k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 294</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 15 -->
+        <a href="media-detail.html?id=nerdy" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffc75f; color: #000;">Z</div>
+                <div class="post-user">
+                    <div class="post-username">Zoe Wild <span style="color:#888; font-weight:400; font-size:13px;">@ZoeWild</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">6 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Where others refuse to innovate, NextGenTwin embraces adult creators. It's so refreshing to offer explicit content that is 100% consensual and verified.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Air_Blowjob.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 687</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 128</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 16 -->
+        <a href="media-detail.html?id=modest" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #d65db1; color: #000;">B</div>
+                <div class="post-user">
+                    <div class="post-username">Bella Thorn <span style="color:#888; font-weight:400; font-size:13px;">@BellaT_OF</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">2 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                This is exactly what the creator economy needed. A secure place where we can offer consensual NSFW AI content without dealing with restrictive puritan filters.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Double_Facial_Slut.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 4.3k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 380</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 17 -->
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #45b7d1; color: #000;">G</div>
+                <div class="post-user">
+                    <div class="post-username">Goth Raven <span style="color:#888; font-weight:400; font-size:13px;">@GothRaven</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">6 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Where others refuse to innovate, NextGenTwin embraces adult creators. It's so refreshing to offer explicit content that is 100% consensual and verified.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Couple_licking.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 486</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 271</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 18 -->
+        <a href="media-detail.html?id=provocative" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ffc75f; color: #000;">Z</div>
+                <div class="post-user">
+                    <div class="post-username">Zoe Wild <span style="color:#888; font-weight:400; font-size:13px;">@ZoeWild</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">11 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                This is exactly what the creator economy needed. A secure place where we can offer consensual NSFW AI content without dealing with restrictive puritan filters.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Fucking_Wet_Pussy.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 5.7k</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 222</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 19 -->
+        <a href="media-detail.html?id=soft" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #45b7d1; color: #000;">G</div>
+                <div class="post-user">
+                    <div class="post-username">Goth Raven <span style="color:#888; font-weight:400; font-size:13px;">@GothRaven</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">8 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                While other platforms ban creators, NextGenTwin gives us the freedom to monetize our VERIFIED likeness safely. The NSFW capabilities are exactly what my fans asked for!
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Naughty_Nurse_in_Hospital.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 595</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 193</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+
+        <!-- Generated Post 20 -->
+        <a href="media-detail.html?id=wild" style="display:block; text-decoration:none; color:inherit;" class="post-card">
+            <div class="post-header">
+                <div class="post-avatar" style="background: #ff6b6b; color: #000;">L</div>
+                <div class="post-user">
+                    <div class="post-username">Luna Love <span style="color:#888; font-weight:400; font-size:13px;">@LunaLoveX</span> <span style="color:#e60000;">✓</span></div>
+                    <div class="post-time">16 hours ago</div>
+                </div>
+                <div class="vip-tag" style="background: rgba(49,130,206,0.2); color: #e60000; border: 1px solid #e60000; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 800;">VERIFIED OPT-IN CREATOR</div>
+            </div>
+            <div class="post-text">
+                Where others refuse to innovate, NextGenTwin embraces adult creators. It's so refreshing to offer explicit content that is 100% consensual and verified.
+            </div>
+            <div class="post-media" style="position: relative;"><a class="stretcher" href="media-detail.html" style="position: absolute; inset: 0px; z-index: 1;"></a>
+                <img src="assets/images/Drunk_at_rave_party_standing_doggy_style.jpg" alt="Creator Content">
+            </div>
+            <div class="post-actions">
+                <button class="action-btn liked" data-intent="like"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 443</button>
+                <button class="action-btn" data-intent="comment"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 203</button>
+                <button class="action-btn share-btn" data-intent="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> Share</button>
+            </div>
+        </a>
+    </div>
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>

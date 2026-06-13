@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Generation Queue - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .queue-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .queue-page h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .queue-page .subtitle {
+            color: #7f91a4;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .queue-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .queue-stat {
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .queue-stat .stat-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .queue-stat .stat-label {
+            font-size: 12px;
+            color: #7f91a4;
+            margin-top: 4px;
+        }
+
+        /* Queue Items */
+        .queue-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .queue-item {
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+
+        .queue-item:hover {
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .queue-thumb {
+            width: 64px;
+            height: 80px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .queue-details {
+            flex: 1;
+        }
+
+        .queue-details h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .queue-details .queue-meta {
+            font-size: 13px;
+            color: #7f91a4;
+        }
+
+        /* Status indicators */
+        .queue-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .status-complete {
+            background: rgba(72, 187, 120, 0.1);
+            color: #48bb78;
+            border: 1px solid rgba(72, 187, 120, 0.2);
+        }
+
+        .status-processing {
+            background: rgba(230, 0, 0, 0.1);
+            color: #e60000;
+            border: 1px solid rgba(230, 0, 0, 0.2);
+        }
+
+        .status-queued {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .status-failed {
+            background: rgba(230, 0, 0, 0.1);
+            color: #e60000;
+            border: 1px solid rgba(230, 0, 0, 0.2);
+        }
+
+        /* Progress bar for processing */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #e60000, #ff3366);
+            transition: width 0.5s;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .progress-fill.animated {
+            background: linear-gradient(90deg, #e60000 0%, #ff3366 50%, #e60000 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .queue-action-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #a0aec0;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .queue-action-btn:hover {
+            border-color: #e60000;
+            color: #e60000;
+        }
+    </style>
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Simple Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-middle" id="mobileMenu">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="subscription.html" class="nav-link" style="color: #ffd700;">⭐ VIP Access</a>
+            <a href="collection.html" class="nav-link">Collection</a>
+            <a href="top-creators.html" class="nav-link">Top Creators</a>
+            <a href="community.html" class="nav-link">Community</a>
+            <a href="studio.html" class="nav-link">Studio</a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
+            <a href="daily-rewards.html" class="nav-link" style="color: #ffd700;">🎰</a>
+            <div id="navCreditBalance" style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; color: #e60000;">
+                ★ 450
+            </div>
+            <div class="profile-pic" style="background-image: url('assets/persona_naughty.png');"></div>
+        </div>
+    </nav>
+
+    <div class="queue-page">
+        <h1>⚡ Generation Queue</h1>
+        <p class="subtitle">Track the status of all your AI generations in real-time.</p>
+
+        <!-- Stats -->
+        <div class="queue-stats">
+            <div class="queue-stat">
+                <div class="stat-num" style="color: #48bb78;">12</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="queue-stat">
+                <div class="stat-num" style="color: #e60000;">2</div>
+                <div class="stat-label">Processing</div>
+            </div>
+            <div class="queue-stat">
+                <div class="stat-num" style="color: #ffd700;">1</div>
+                <div class="stat-label">In Queue</div>
+            </div>
+        </div>
+
+        <!-- Queue List -->
+        <div class="queue-list">
+
+            <!-- Processing -->
+            <div class="queue-item" style="border-color: rgba(49,130,206,0.3);">
+                <div class="queue-thumb" style="background-image: url('assets/images/Close-up_Blowjob_POV.jpg');"></div>
+                <div class="queue-details">
+                    <h3>FaceSwap — BBC Side Missionary</h3>
+                    <div class="queue-meta">Template by @delulu · Started 2 min ago</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill animated" style="width: 72%;"></div>
+                    </div>
+                </div>
+                <div class="queue-status status-processing">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    72%
+                </div>
+            </div>
+
+            <!-- Processing -->
+            <div class="queue-item" style="border-color: rgba(49,130,206,0.3);">
+                <div class="queue-thumb" style="background-image: url('assets/images/Forced_Blowjob_1.jpg');"></div>
+                <div class="queue-details">
+                    <h3>FaceSwap — Cowgirl POV</h3>
+                    <div class="queue-meta">Template by @delulu · Started 5 min ago</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill animated" style="width: 38%;"></div>
+                    </div>
+                </div>
+                <div class="queue-status status-processing">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    38%
+                </div>
+            </div>
+
+            <!-- Queued -->
+            <div class="queue-item">
+                <div class="queue-thumb" style="background-image: url('assets/images/Fuck_Her_Again (1).jpg');"></div>
+                <div class="queue-details">
+                    <h3>Nudify + Enhance — Threesome Tease</h3>
+                    <div class="queue-meta">Template by @delulu · Queued</div>
+                </div>
+                <div class="queue-status status-queued">
+                    ⏳ Queued
+                </div>
+            </div>
+
+            <!-- Completed -->
+            <div class="queue-item">
+                <div class="queue-thumb" style="background-image: url('assets/images/She_Wants_A_Taste_original.jpg');"></div>
+                <div class="queue-details">
+                    <h3>FaceSwap — Reverse Cowgirl</h3>
+                    <div class="queue-meta">Template by @delulu · Completed 12 min ago</div>
+                </div>
+                <div class="queue-status status-complete">✅ Done</div>
+                <a href="media-detail.html?id=video1" class="queue-action-btn" style="text-decoration:none; display:inline-block; text-align:center;">View</a>
+            </div>
+
+            <!-- Completed -->
+            <div class="queue-item">
+                <div class="queue-thumb" style="background-image: url('assets/images/POV_Close_Titjob_Tilt_Up_2k_V3 (1).jpg');"></div>
+                <div class="queue-details">
+                    <h3>Image to Video — Solo Tease</h3>
+                    <div class="queue-meta">Template by @delulu · Completed 28 min ago</div>
+                </div>
+                <div class="queue-status status-complete">✅ Done</div>
+                <a href="media-detail.html?id=video1" class="queue-action-btn" style="text-decoration:none; display:inline-block; text-align:center;">View</a>
+            </div>
+
+            <!-- Failed -->
+            <div class="queue-item">
+                <div class="queue-thumb" style="background-image: url('assets/images/Forced_Blowjob_2.jpg');"></div>
+                <div class="queue-details">
+                    <h3>FaceSwap — Passionate Close-Up</h3>
+                    <div class="queue-meta">Failed · Image quality too low. Try uploading a higher-res photo.</div>
+                </div>
+                <div class="queue-status status-failed">❌ Failed</div>
+                <a href="train.html" class="queue-action-btn retry-btn" style="text-decoration:none; display:inline-block; text-align:center;">Retry</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Read credits
+            const currentBalance = parseInt(localStorage.getItem('userCredits')) || 450;
+            const navCreditBalance = document.getElementById('navCreditBalance');
+            if (navCreditBalance) {
+                navCreditBalance.textContent = '★ ' + currentBalance;
+            }
+
+            // Load dynamically added queue items
+            const queueList = document.querySelector('.queue-list');
+            const newTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
+            
+            newTasks.forEach(task => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'queue-item';
+                
+                const thumbDiv = document.createElement('div');
+                thumbDiv.className = 'queue-thumb';
+                thumbDiv.style.backgroundImage = `url('${task.thumb.replace(/'/g, "\\'")}')`;
+                
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'queue-details';
+                
+                const h3 = document.createElement('h3');
+                h3.textContent = task.title;
+                
+                const metaDiv = document.createElement('div');
+                metaDiv.className = 'queue-meta';
+                metaDiv.textContent = task.meta;
+                
+                detailsDiv.appendChild(h3);
+                detailsDiv.appendChild(metaDiv);
+                
+                const statusDiv = document.createElement('div');
+                statusDiv.className = 'queue-status status-queued';
+                statusDiv.textContent = '⏳ Queued';
+                
+                itemDiv.appendChild(thumbDiv);
+                itemDiv.appendChild(detailsDiv);
+                itemDiv.appendChild(statusDiv);
+                
+                queueList.prepend(itemDiv);
+            });
+        });
+    </script>
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>

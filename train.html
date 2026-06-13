@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Train Clone - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0a0b0c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0a0b0c">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-middle" id="mobileMenu">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="subscription.html" class="nav-link" style="color: #ffd700;">⭐ VIP Access</a>
+            <a href="top-creators.html" class="nav-link">Top Creators</a>
+            <a href="character-studio.html" class="nav-link">Identity Hub</a>
+            <a href="studio.html" class="nav-link">Neural Studio</a>
+            <a href="train.html" class="nav-link active train-btn">Train Model</a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
+            <a href="daily-rewards.html" class="nav-link" style="color: #ffd700;">🎰</a>
+            <div style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; color: #e60000; cursor: pointer;">
+                ★ 450
+            </div>
+            <a href="login.html" class="profile-circle">N</a>
+        </div>
+    </nav>
+
+    <div class="page-container" style="max-width: 1000px; padding-top: 60px;">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div class="badge badge-red" style="margin-bottom: 16px; display: inline-block;">NEXA LLM INGESTION</div>
+            <h1 class="nexa-title" style="font-size: 48px; margin-bottom: 16px;">Train Your Digital Twin</h1>
+            <p style="color: #a0aec0; font-size: 18px; max-width: 600px; margin: 0 auto;">
+                Upload your high-quality assets to the Neural Engine. Our advanced AI will map your face, clone your voice, and mimic your texting style.
+            </p>
+        </div>
+
+        <div style="display: grid; gap: 32px;">
+            
+            <!-- Step 1: Visual Mapping -->
+            <div class="panel" style="display: flex; gap: 32px; align-items: flex-start; padding: 40px; background: rgba(230,0,0,0.02); border-color: rgba(230,0,0,0.2);">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: #e60000; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #fff; flex-shrink: 0;">1</div>
+                <div style="flex-grow: 1;">
+                    <h2 style="font-size: 24px; margin-bottom: 12px; color: #fff;">Visual Identity Mapping</h2>
+                    <p style="color: #a0aec0; margin-bottom: 24px; line-height: 1.5;">Upload 15-20 high-resolution photos and 2-3 short videos of your face and body from different angles and lighting conditions.</p>
+                    
+                    <div style="border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; padding: 40px; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#e60000'; this.style.background='rgba(230,0,0,0.05)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.02)';">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📸</div>
+                        <h4 style="color: #fff; font-size: 18px; margin-bottom: 8px;">Drag &amp; Drop Photos / Videos</h4>
+                        <p style="color: #666; font-size: 14px;">Supported: JPG, PNG, MP4 (Max 50MB per file)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Voice Cloning -->
+            <div class="panel" style="display: flex; gap: 32px; align-items: flex-start; padding: 40px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #fff; flex-shrink: 0;">2</div>
+                <div style="flex-grow: 1;">
+                    <h2 style="font-size: 24px; margin-bottom: 12px; color: #fff;">Voice Cloning (ElevenLabs Sync)</h2>
+                    <p style="color: #a0aec0; margin-bottom: 24px; line-height: 1.5;">Read the provided script or upload a clean, 60-second audio recording of your voice speaking naturally without background noise.</p>
+                    
+                    <div style="display: flex; gap: 16px;">
+                        <div class="btn-primary" style="background: transparent; border: 1px solid #e60000; color: #e60000; padding: 12px 24px; display: flex; align-items: center; gap: 8px;" >
+                            <span style="font-size: 20px;">🎤</span> Record in Browser
+                        </div>
+                        <div class="btn-primary" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 12px 24px;" >
+                            Upload .WAV / .MP3
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Personality Engine -->
+            <div class="panel" style="display: flex; gap: 32px; align-items: flex-start; padding: 40px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: #fff; flex-shrink: 0;">3</div>
+                <div style="flex-grow: 1;">
+                    <h2 style="font-size: 24px; margin-bottom: 12px; color: #fff;">Personality &amp; Text Sync</h2>
+                    <p style="color: #a0aec0; margin-bottom: 24px; line-height: 1.5;">Define your boundaries, conversational style, and memory constraints. Upload chat logs (WhatsApp/Telegram) to train your typing cadence.</p>
+                    
+                    <div style="background: #111114; padding: 24px; border-radius: 12px; border: 1px solid #333; margin-bottom: 24px;">
+                        <label style="display: block; color: #fff; font-weight: 600; margin-bottom: 8px;">System Prompt / Core Directives</label>
+                        <textarea style="width: 100%; height: 120px; background: #000; border: 1px solid #333; border-radius: 8px; color: #fff; padding: 16px; font-family: 'Inter', sans-serif; resize: none;" placeholder="e.g. 'I am a dominant, sassy model. I use emojis like 💅 and 😈. I never break character. I tease users into buying my PPV content.'"></textarea>
+                    </div>
+                    
+                    <div class="btn-primary" style="text-align:center; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 12px 24px; width: 100%;" >
+                        Upload WhatsApp/OF Chat Logs (.TXT)
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 100px;">
+            <p style="color: #e60000; margin-bottom: 16px; font-weight: 600;">Training takes approximately 4-6 hours.</p>
+            <a href="train-new.html" class="btn-primary" style="text-decoration:none; display:inline-block; padding: 24px 64px; font-size: 24px; font-weight: 800; box-shadow: 0 0 40px rgba(230,0,0,0.5);">INITIATE NEURAL TRAINING</a>
+        </div>
+    </div>
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>

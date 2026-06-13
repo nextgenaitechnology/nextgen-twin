@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Become a Creator - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .hero-pitch {
+            text-align: center;
+            padding: 100px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-pitch h1 {
+            font-size: 64px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #a0aec0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-pitch p {
+            font-size: 20px;
+            color: #a0aec0;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .pillar-card {
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: #e60000;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #e60000, #ff3366);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .pillar-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .pillar-desc {
+            color: #7f91a4;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .vs-section {
+            background: rgba(230, 0, 0, 0.05);
+            border: 1px solid rgba(230, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .vs-col h3 {
+            font-size: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .vs-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vs-col ul li {
+            margin-bottom: 16px;
+            color: #a0aec0;
+            display: flex;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .cta-btn-massive {
+            display: inline-flex;
+            background: #fff;
+            color: #000;
+            padding: 20px 48px;
+            border-radius: 40px;
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn-massive:hover {
+            transform: scale(1.05);
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 900px) {
+            .pillars-grid, .vs-section {
+                grid-template-columns: 1fr;
+            }
+            .hero-pitch h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Simple Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
+            <a href="login.html" class="nav-link">Log In</a>
+        </div>
+    </nav>
+
+    <!-- Hero Pitch -->
+    <div class="hero-pitch">
+        <span class="badge badge-red" style="margin-bottom: 24px; display: inline-block;">CREATOR PLATFORM</span>
+        <h1>Stop Grinding.<br>Start Scaling.</h1>
+        <p>Waarom elke dag nieuwe content uploaden als je fans jouw content 10.000 keer kunnen hergebruiken? Bouw een uncensored Neural Engine, laat je community personaliseren, en verdien aan elke klik.</p>
+        <a href="train-new.html" class="cta-btn-massive train-btn">Train Your Neural Engine →</a>
+    </div>
+
+    <!-- The 3 Pillars -->
+    <div class="pillars-grid">
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="pillar-card">
+            <div class="pillar-icon">🔥</div>
+            <h3 class="pillar-title">Uncensored AI Freedom</h3>
+            <p class="pillar-desc">Geen filters, geen bans, geen restricties. Je kent je publiek en je weet wat ze willen. Bouw je brand en community exact zoals jij dat wilt met onze 100% NSFW-friendly engine.</p>
+        </a>
+        <a href="media-detail.html?id=provocative" style="display:block; text-decoration:none; color:inherit;" class="pillar-card">
+            <div class="pillar-icon">♾️</div>
+            <h3 class="pillar-title">One Template, 10k Uses</h3>
+            <p class="pillar-desc">De content-treadmill is dood. Maak de perfecte (adult) templates vanuit je creatieve brein. Je fans gebruiken credits om zichzelf of jou erin te swappen. Eén keer werk, oneindig passief inkomen.</p>
+        </a>
+        <a href="media-detail.html?id=soft" style="display:block; text-decoration:none; color:inherit;" class="pillar-card">
+            <div class="pillar-icon">💸</div>
+            <h3 class="pillar-title">Get Paid Per Use</h3>
+            <p class="pillar-desc">Jij krijgt direct een vaste inkomstenstroom in credits *elke keer* dat een fan jouw template gebruikt voor personalisatie. Slapen terwijl de kassa rinkelt was nog nooit zo letterlijk.</p>
+        </a>
+    </div>
+
+    <!-- VS Section -->
+    <div class="vs-section">
+        <div class="vs-col" style="opacity: 0.5;">
+            <h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e60000" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                The Old Way (Foxy / OF)
+            </h3>
+            <ul>
+                <li>❌ Constante druk om elke dag nieuwe foto's en video's te schieten.</li>
+                <li>❌ Strikte censuur regels die je inkomsten beperken.</li>
+                <li>❌ Gebruikers consumeren content eenmalig en klikken weg.</li>
+                <li>❌ Handmatig DM's beantwoorden en custom verzoekjes filmen.</li>
+            </ul>
+        </div>
+        <div class="vs-col">
+            <h3 style="color: #fff;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e60000" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                The NextGen Way
+            </h3>
+            <ul>
+                <li>✅ Maak de perfecte base-templates en laat de AI de rest doen.</li>
+                <li>✅ 100% Uncensored - geef je community exact wat ze willen.</li>
+                <li>✅ Gebruikers swappen zichzelf in je content (10.000+ hergebruik).</li>
+                <li>✅ Fans trainen op jouw Neural Engine en jij casht passief op élke generatie.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>

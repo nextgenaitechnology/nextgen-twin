@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Daily Rewards - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .rewards-page {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+            text-align: center;
+        }
+
+        .rewards-page h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rewards-page .subtitle {
+            color: #7f91a4;
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+
+        /* Streak Bar */
+        .streak-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px 32px;
+        }
+
+        .streak-icon {
+            font-size: 32px;
+        }
+
+        .streak-info {
+            text-align: left;
+        }
+
+        .streak-info .streak-count {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+        .streak-info .streak-label {
+            color: #7f91a4;
+            font-size: 13px;
+        }
+
+        .streak-bonus {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        /* Spin Wheel */
+        .wheel-container {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto 40px;
+        }
+
+        .wheel-outer {
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #e60000 0deg 45deg,
+                #1a1a2e 45deg 90deg,
+                #e60000 90deg 135deg,
+                #1a1a2e 135deg 180deg,
+                #ffd700 180deg 225deg,
+                #1a1a2e 225deg 270deg,
+                #e60000 270deg 315deg,
+                #1a1a2e 315deg 360deg
+            );
+            border: 4px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(230, 0, 0, 0.2), inset 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+        }
+
+        .wheel-outer.spinning {
+            transform: rotate(var(--spin-deg, 1800deg));
+        }
+
+        .wheel-label {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .wheel-label span {
+            position: absolute;
+            font-weight: 800;
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            transform-origin: center center;
+        }
+
+        .wheel-label span:nth-child(1) { top: 28%; left: 65%; transform: rotate(22deg); }
+        .wheel-label span:nth-child(2) { top: 10%; left: 42%; transform: rotate(68deg); }
+        .wheel-label span:nth-child(3) { top: 15%; left: 15%; transform: rotate(112deg); }
+        .wheel-label span:nth-child(4) { top: 38%; left: 5%; transform: rotate(158deg); }
+        .wheel-label span:nth-child(5) { top: 62%; left: 8%; transform: rotate(202deg); }
+        .wheel-label span:nth-child(6) { top: 78%; left: 22%; transform: rotate(248deg); }
+        .wheel-label span:nth-child(7) { top: 78%; left: 52%; transform: rotate(292deg); }
+        .wheel-label span:nth-child(8) { top: 58%; left: 68%; transform: rotate(338deg); }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-top: 28px solid #ffd700;
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #111114;
+            border: 3px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 5;
+        }
+
+        .spin-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            color: #000;
+            border: none;
+            padding: 18px 56px;
+            border-radius: 32px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 48px;
+        }
+
+        .spin-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .spin-btn:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Result Popup */
+        .reward-popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reward-popup.active {
+            display: flex;
+        }
+
+        .reward-card {
+            background: #111114;
+            border: 2px solid #ffd700;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            animation: popIn 0.4s ease-out;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .reward-card .reward-emoji { font-size: 64px; margin-bottom: 16px; }
+        .reward-card h2 { font-size: 28px; color: #ffd700; margin-bottom: 8px; }
+        .reward-card p { color: #a0aec0; margin-bottom: 24px; }
+        .reward-card .reward-amount { font-size: 48px; font-weight: 800; color: #fff; }
+
+        .reward-claim-btn {
+            background: #ffd700;
+            color: #000;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: transform 0.2s;
+        }
+
+        .reward-claim-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Daily Calendar */
+        .daily-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .day-cell {
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+        }
+
+        .day-cell.claimed {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .day-cell.today {
+            border-color: #e60000;
+            background: rgba(230, 0, 0, 0.05);
+        }
+
+        .day-cell .day-num {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .day-cell .day-reward {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .day-cell.claimed .day-reward {
+            color: #ffd700;
+        }
+
+        .day-cell .day-check {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+    </style>
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Simple Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-middle" id="mobileMenu">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="subscription.html" class="nav-link" style="color: #ffd700;">⭐ VIP Access</a>
+            <a href="collection.html" class="nav-link">Collection</a>
+            <a href="top-creators.html" class="nav-link">Top Creators</a>
+            <a href="community.html" class="nav-link">Community</a>
+            <a href="studio.html" class="nav-link">Studio</a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
+            <a href="daily-rewards.html" class="nav-link active" style="color: #ffd700;">🎰 Daily</a>
+            <div class="credit-display" style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; color: #e60000; cursor: pointer;">
+                ★ <span id="creditBalance">450</span>
+            </div>
+            <div class="profile-pic" style="background-image: url('assets/persona_naughty.png');"></div>
+        </div>
+    </nav>
+
+    <!-- Rewards Page -->
+    <div class="rewards-page">
+        <h1>🎰 Daily Rewards</h1>
+        <p class="subtitle">Spin the wheel every 24 hours to claim free credits. Build your streak for bonus multipliers!</p>
+
+        <!-- Streak Bar -->
+        <div class="streak-bar">
+            <div class="streak-icon">🔥</div>
+            <div class="streak-info">
+                <div class="streak-count" id="streakCount">3 Day Streak</div>
+                <div class="streak-label">Come back tomorrow to keep it going!</div>
+            </div>
+            <div class="streak-bonus">1.5x Bonus</div>
+        </div>
+
+        <!-- Spin Wheel -->
+        <div class="wheel-container">
+            <div class="wheel-pointer"></div>
+            <div class="wheel-outer" id="wheel">
+                <div class="wheel-label">
+                    <span>★ 10</span>
+                    <span>★ 25</span>
+                    <span>★ 50</span>
+                    <span>★ 5</span>
+                    <span>★ 100</span>
+                    <span>★ 15</span>
+                    <span>★ 75</span>
+                    <span>★ 20</span>
+                </div>
+            </div>
+            <div class="wheel-center">🎯</div>
+        </div>
+
+        <button class="spin-btn" id="spinBtn">SPIN THE WHEEL</button>
+
+        <!-- Weekly Calendar -->
+        <h3 style="text-align: left; margin-bottom: 16px; color: #fff; font-size: 18px;">This Week</h3>
+        <div class="daily-calendar">
+            <div class="day-cell claimed">
+                <div class="day-num">Mon</div>
+                <div class="day-reward">★ 25</div>
+                <div class="day-check">✅</div>
+            </div>
+            <div class="day-cell claimed">
+                <div class="day-num">Tue</div>
+                <div class="day-reward">★ 10</div>
+                <div class="day-check">✅</div>
+            </div>
+            <div class="day-cell claimed">
+                <div class="day-num">Wed</div>
+                <div class="day-reward">★ 50</div>
+                <div class="day-check">✅</div>
+            </div>
+            <div class="day-cell today">
+                <div class="day-num">Thu</div>
+                <div class="day-reward">???</div>
+                <div class="day-check">🎯</div>
+            </div>
+            <div class="day-cell">
+                <div class="day-num">Fri</div>
+                <div class="day-reward">—</div>
+                <div class="day-check"></div>
+            </div>
+            <div class="day-cell">
+                <div class="day-num">Sat</div>
+                <div class="day-reward">—</div>
+                <div class="day-check"></div>
+            </div>
+            <div class="day-cell">
+                <div class="day-num">Sun</div>
+                <div class="day-reward">2x</div>
+                <div class="day-check">🌟</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reward Popup -->
+    <div class="reward-popup" id="rewardPopup">
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="reward-card">
+            <div class="reward-emoji">🎉</div>
+            <h2>You Won!</h2>
+            <p>Your daily reward (with 1.5x streak bonus)</p>
+            <div class="reward-amount" id="rewardAmount">★ 75</div>
+            <button class="reward-claim-btn">Claim Credits</button>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinBtn = document.getElementById('spinBtn');
+            if (spinBtn) spinBtn.addEventListener('click', spinWheel);
+            
+            const claimRewardBtns = document.querySelectorAll('.reward-claim-btn');
+            claimRewardBtns.forEach(btn => btn.addEventListener('click', claimReward));
+        });
+
+        const prizes = [10, 25, 50, 5, 100, 15, 75, 20];
+        const streakMultiplier = 1.5;
+        let hasSpun = false;
+
+        function spinWheel() {
+            if (hasSpun) return;
+            hasSpun = true;
+
+            const btn = document.getElementById('spinBtn');
+            btn.disabled = true;
+            btn.textContent = 'SPINNING...';
+
+            const wheel = document.getElementById('wheel');
+            const winIndex = Math.floor(Math.random() * prizes.length);
+            const segmentAngle = 360 / prizes.length;
+            const targetAngle = 360 - (winIndex * segmentAngle + segmentAngle / 2);
+            const totalSpin = 1800 + targetAngle;
+
+            wheel.style.setProperty('--spin-deg', totalSpin + 'deg');
+            wheel.classList.add('spinning');
+
+            const winAmount = Math.round(prizes[winIndex] * streakMultiplier);
+
+            setTimeout(() => {
+                document.getElementById('rewardAmount').textContent = '★ ' + winAmount;
+                document.getElementById('rewardPopup').classList.add('active');
+                btn.textContent = 'CLAIMED ✓';
+            }, 4500);
+        }
+
+        function claimReward() {
+            document.getElementById('rewardPopup').classList.remove('active');
+            const bal = document.getElementById('creditBalance');
+            if (bal) {
+                bal.textContent = parseInt(bal.textContent) + parseInt(document.getElementById('rewardAmount').textContent.replace('★ ', ''));
+                window.showToast('Credits claimed successfully!', 'success');
+            }
+        }
+    </script>
+
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>

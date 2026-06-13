@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Join The Agent Revolution - NextGen AI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --neon-red: #ff0040;
+            --neon-pink: #ff3366;
+            --holo-blue: #00f3ff;
+            --dark-bg: #050505;
+            --panel-bg: rgba(15, 15, 20, 0.85);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* MATRIX / PARTICLES BACKGROUND */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* HERO SECTION */
+        .hero-banner {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            text-shadow: 0 0 20px var(--neon-red);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--holo-blue);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        /* 3D HOLOGRAPHIC TIMELINE CARDS */
+        .timeline-container {
+            max-width: 1100px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+            perspective: 1200px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, #a0aec0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-item {
+            background: var(--panel-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--neon-pink);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: transparent;
+            color: var(--holo-blue);
+            border: 1px solid var(--holo-blue);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0,243,255,0.2);
+        }
+
+        .timeline-item h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .timeline-item p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tag {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: #fff;
+            background: rgba(255,51,102,0.15);
+            border: 1px solid rgba(255,51,102,0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        /* CODE BLOCK STYLING */
+        .code-block {
+            background: #0f111a;
+            border: 1px solid #1f2233;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Share Tech Mono', monospace;
+            color: #a6accd;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--holo-blue);
+        }
+
+        .code-keyword { color: #89ddff; }
+        .code-function { color: #82aaff; }
+        .code-string { color: #c3e88d; }
+        .code-comment { color: #676e95; font-style: italic; }
+
+        .diagram-container {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .mermaid {
+            background: transparent !important;
+            font-family: 'Inter', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="network-canvas"></canvas>
+    <div class="scanlines"></div>
+
+    <!-- TOP NAVBAR -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,51,102,0.2);">
+        <a href="index.html" class="nav-logo" style="text-decoration:none; color:white; display:flex; align-items:center; gap:8px;">
+            <div style="width:24px; height:24px; background:linear-gradient(45deg, #ff3366, #ff0040); border-radius:6px; box-shadow: 0 0 10px #ff3366;"></div>
+            <span style="font-family:'Outfit', sans-serif; font-weight:800; font-size:18px;">NextGen</span>
+        </a>
+        <div class="nav-links">
+            <a href="explore.html">Explore</a>
+            <a href="studio.html">Studio</a>
+            <a href="community.html">Community</a>
+            <a href="orchestration.html" class="active" style="color:var(--neon-pink); text-shadow:0 0 10px var(--neon-pink);">Architecture</a>
+        </div>
+        <div class="nav-actions">
+            <div class="profile-circle" style="border: 2px solid var(--neon-pink);">
+                <img src="assets/profile-pic.jpg" alt="Profile" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23333\'><circle cx=\'12\' cy=\'12\' r=\'12\'/></svg>'">
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title">ENGINEERING THE REVOLUTION</h1>
+            <h2 class="hero-subtitle">NEXTGEN TWIN // TECHNICAL ARCHITECTURE CASE STUDY</h2>
+            <div style="max-width: 800px; margin: 0 auto; color: #a0aec0; font-size: 1.2rem; line-height: 1.6;">
+                Traditionele IT-bureaus bouwen in jaren. Wij bouwen in maanden. Geen loze woorden, maar keiharde architectuur. Bekijk hier hoe wij via <strong>Agentic Spawning</strong> en autonoom programmeren de NextGen Twin hebben georkestreerd.
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-container">
+
+        <div class="section-header">
+            <h2>The Agentic Pipeline</h2>
+            <p style="color: var(--holo-blue); font-family: 'Share Tech Mono';">HOW WE OBLITERATE TRADITIONAL DEVELOPMENT</p>
+        </div>
+        
+        <!-- NODE 01: Orchestration -->
+        <div class="timeline-item">
+            <div>
+                <span class="badge">NODE 01</span>
+                <h3>The Master Node (Orchestrator)</h3>
+                <p>
+                    In ons ecosysteem is de menselijke expert de "Ceremonial Master". Jij definieert de bedrijfslogica, veiligheidsgrenzen en de gewenste UI-richtlijnen (glassmorphism, dark theme). Vervolgens vertaalt de <strong>Primary Agent</strong> deze abstracte eisen razendsnel naar een cryptografisch goedgekeurd <code>implementation_plan.md</code>.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">#HUMAN_IN_THE_LOOP</span>
+                    <span class="tech-tag">#ARCHITECT_MODE</span>
+                </div>
+            </div>
+            <div class="diagram-container">
+                <img src="assets/ceremonial_master.png" style="width:100%; border-radius:8px; box-shadow: 0 0 20px rgba(255,51,102,0.3);" alt="Master Node">
+            </div>
+        </div>
+
+        <!-- NODE 02: Concurrent Spawning -->
+        <div class="timeline-item">
+            <div class="code-block">
+<span class="code-comment">// Spawning async agents to process massive datasets</span><br>
+<span class="code-keyword">await</span> <span class="code-function">invoke_subagent</span>({<br>
+&nbsp;&nbsp;Subagents: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ Role: <span class="code-string">"Data Scraper Node A"</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ Role: <span class="code-string">"Data Scraper Node B"</span> }<br>
+&nbsp;&nbsp;]<br>
+});
+            </div>
+            <div>
+                <span class="badge">NODE 02</span>
+                <h3>Concurrent Subagent Spawning</h3>
+                <p>
+                    Het bouwen van een database met 1000+ dynamische video templates kost een mens weken. Wij lossen dit op door asynchroon een <strong>Scraping Swarm</strong> te lanceren. Via de <code>invoke_subagent</code> tool spawnen we parallelle AI-werkers in de achtergrond. Zij itereren autonoom door de folders, parseren URL's via regex, en structureren dit bliksemsnel in <code>videos_data.js</code>. 
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">#CONCURRENCY</span>
+                    <span class="tech-tag">#ASYNC_PROCESSING</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODE 03: Inter-agent comms -->
+        <div class="timeline-item">
+            <div>
+                <span class="badge">NODE 03</span>
+                <h3>Inter-Agent Comms & Loop Prevention</h3>
+                <p>
+                    Wanneer sub-agents dreigen vast te lopen of resource-quota overschrijden, is handmatig ingrijpen te traag. Agents communiceren status via <code>send_message</code>. Zodra het veiligheidssysteem een oneindige loop detecteert, escaleert de Master Agent direct en forceert een <code>kill_all</code> via de <code>manage_subagents</code> API. Daardoor crasht het project nooit, en besparen we 90% in server-costs.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">#QUOTA_MANAGEMENT</span>
+                    <span class="tech-tag">#FAILSAFE</span>
+                </div>
+            </div>
+            <div class="code-block">
+<span class="code-comment"># Emergency override for runaway processes</span><br>
+<span class="code-function">manage_subagents</span>({<br>
+&nbsp;&nbsp;Action: <span class="code-string">"kill_all"</span>,<br>
+&nbsp;&nbsp;Reason: <span class="code-string">"Quota exceeded during massive scrape"</span><br>
+});<br><br>
+<span class="code-comment">// Process Terminated. System stable.</span>
+            </div>
+        </div>
+
+        <!-- NODE 04: Refactoring -->
+        <div class="timeline-item">
+            <div class="diagram-container">
+                <img src="assets/safety_shield.png" style="width:100%; border-radius:8px; box-shadow: 0 0 20px rgba(0,243,255,0.3);" alt="Safety Shield">
+            </div>
+            <div>
+                <span class="badge">NODE 04</span>
+                <h3>Automated Refactoring & Auditing</h3>
+                <p>
+                    Legacy code en concurrentie-restanten (zoals "Playbox") opschonen? Wij sturen geen team van junior developers. Een gespecialiseerde audit-agent schrijft en executeert on-the-fly Python scripts (zoals <code>remove_playbox.py</code>) die direct 29 HTML bestanden parsen en herschrijven in fracties van seconden, gevolgd door een globale injectie van de nieuwe CSS UI laag.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">#AUTONOMOUS_CODING</span>
+                    <span class="tech-tag">#ZERO_LEGACY</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script>
+        // Network Particle Canvas (Agent Swarm simulation)
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.radius = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#ff3366' : '#00f3ff';
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Draw connections
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 51, 102, ${1 - dist/150})`;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>

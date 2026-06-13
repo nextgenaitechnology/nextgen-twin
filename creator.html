@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    <title>Creator Profile - NextGen AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .creator-profile {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            margin-bottom: 48px;
+            background: #111114;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #e60000;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .profile-info h1 .verified {
+            color: #e60000;
+            font-size: 20px;
+            margin-left: 8px;
+        }
+
+        .profile-info .handle {
+            color: #e60000;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .profile-info .bio {
+            color: #7f91a4;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .profile-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 24px;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .stat-item .stat-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-item .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .follow-btn {
+            background: #e60000;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .follow-btn:hover {
+            transform: scale(1.05);
+            background: #cc0000;
+        }
+
+        .follow-btn.following {
+            background: transparent;
+            border: 1px solid #e60000;
+            color: #e60000;
+        }
+
+        .tip-btn {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .tip-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Tabs */
+        .profile-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 32px;
+        }
+
+        .profile-tab {
+            padding: 16px 24px;
+            color: #7f91a4;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .profile-tab.active {
+            color: #fff;
+            border-bottom-color: #e60000;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 9/16;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+
+        .portfolio-item img,
+        .portfolio-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-item .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .portfolio-item .item-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .portfolio-item .item-uses {
+            font-size: 11px;
+            color: #7f91a4;
+            margin-top: 4px;
+        }
+
+        /* Earnings card */
+        .earnings-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(230, 0, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .earnings-card .earnings-label {
+            color: #7f91a4;
+            font-size: 14px;
+        }
+
+        .earnings-card .earnings-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header { flex-direction: column; text-align: center; }
+            .profile-stats { margin: 16px auto 0; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+
+    <link rel="icon" href="assets/flame_icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Simple Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="explore.html" class="logo" style="text-decoration: none;">
+                <div class="logo-text" style="font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+                    <span style="color: #fff;">Next</span><span style="color: #e60000;">Gen</span>
+                </div>
+            </a>
+        </div>
+        <div class="nav-middle" id="mobileMenu">
+            <a href="explore.html" class="nav-link">Explore</a>
+            <a href="subscription.html" class="nav-link" style="color: #ffd700;">⭐ VIP Access</a>
+            <a href="collection.html" class="nav-link">Collection</a>
+            <a href="top-creators.html" class="nav-link">Top Creators</a>
+            <a href="community.html" class="nav-link">Community</a>
+            <a href="studio.html" class="nav-link">Studio</a>
+        </div>
+        <div class="nav-right">
+            <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
+            <a href="daily-rewards.html" class="nav-link" style="color: #ffd700;">🎰</a>
+            <div style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 14px; color: #e60000;">
+                ★ 450
+            </div>
+            <div class="profile-pic" style="background-image: url('assets/persona_provocative.png');"></div>
+        </div>
+    </nav>
+
+    <div class="creator-profile">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" style="background-image: url('assets/persona_provocative.png');"></div>
+            <div class="profile-info">
+                <h1>delulu <span class="verified">✓</span></h1>
+                <div class="handle">@delulu</div>
+                <p class="bio">AI Artist &amp; Neural Engine Creator. Building the most realistic uncensored templates on NextGen. My templates have been used 47,000+ times. DM for collabs 💕</p>
+                <div class="profile-badges">
+                    <span class="badge badge-red">VIP</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">LEGEND</span>
+                    <span class="badge" style="background: rgba(49,130,206,0.15); color: #e60000; border: 1px solid rgba(49,130,206,0.3);">#1 Creator</span>
+                </div>
+                <div class="profile-actions">
+                    <button class="follow-btn">Follow</button>
+                    <div class="tip-btn" >💰 Send Tip</div>
+                </div>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-num">47.2K</div>
+                    <div class="stat-label">Uses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">12.8K</div>
+                    <div class="stat-label">Followers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">34</div>
+                    <div class="stat-label">Templates</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings Banner -->
+        <a href="media-detail.html?id=video1" style="display:block; text-decoration:none; color:inherit;" class="earnings-card">
+            <div>
+                <div class="earnings-label">Total Creator Earnings (All Time)</div>
+                <div class="earnings-amount">★ 142,800</div>
+            </div>
+            <div style="color: #7f91a4; font-size: 14px; text-align: right;">
+                <div>This Month: <span style="color: #ffd700; font-weight: 700;">★ 18,400</span></div>
+                <div style="margin-top: 4px;">Avg. Per Template: <span style="color: #fff; font-weight: 700;">★ 4,200</span></div>
+            </div>
+        </a>
+
+        <!-- Tabs -->
+        <div class="profile-tabs">
+            <div class="profile-tab active">Templates (34)</div>
+            <div class="profile-tab">Favorites</div>
+            <div class="profile-tab">About</div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/video4c4c7265-1a6f-4bf2-9b7d-f1f8bc199bbe (1).mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">BBC Side Missionary</div>
+                    <div class="item-uses">8,412 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/video299b1c06-00d6-49be-9785-83ec7e85700c (1).mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Cowgirl POV</div>
+                    <div class="item-uses">6,203 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/videoe36f67a9-6722-456b-a63f-57de782224bd (1).mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Threesome Tease</div>
+                    <div class="item-uses">5,891 uses · ★ 40</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/videoee0d5e03-1ad8-43d5-87ac-426c988f0587 (1).mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Reverse Cowgirl</div>
+                    <div class="item-uses">4,700 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/video8811ee00-a20b-4ab9-8d91-4d6fd5b4f5d4.mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Doggy Style POV</div>
+                    <div class="item-uses">4,280 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/videoe6129d98-eea6-44e0-947b-28d447a0f0dd.mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Shower Scene</div>
+                    <div class="item-uses">3,950 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/videoef0b690d-adc0-494c-babf-61a98b01b72f.mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Solo Tease</div>
+                    <div class="item-uses">3,440 uses · ★ 30</div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <video autoplay="" loop="" muted="" playsinline="">
+                    <source src="assets/video_1.mp4" type="video/mp4">
+                </video>
+                <div class="item-overlay">
+                    <div class="item-title">Passionate Close-Up</div>
+                    <div class="item-uses">3,100 uses · ★ 30</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="hamburger.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="explore.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            Explore
+        </a>
+        <a href="collection.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            Collection
+        </a>
+        <a href="studio.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Studio
+        </a>
+        <a href="community.html" class="mobile-nav-item ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Community
+        </a>
+    </nav>
+
+    <script src="app.js"></script>
+
+
+</body></html>
