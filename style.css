@@ -2700,9 +2700,7 @@ input:checked + .slider:before {
     font-size: 56px;
     font-weight: 800;
     margin-bottom: 8px;
-    background: linear-gradient(to right, #fff, #ff8a8a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     letter-spacing: -1.5px;
 }
 
@@ -3434,7 +3432,7 @@ input:checked + .slider:before {
     pointer-events: none; /* Let clicks pass through to overlay */
 }
 
-.nexa-title {
+.nexa-info-overlay .nexa-title {
     font-size: 20px;
     font-weight: 800;
     color: #fff;
