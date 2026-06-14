@@ -8,17 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         .feed-container {
-            max-width: 680px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 32px 16px;
+            column-count: 3;
+            column-gap: 24px;
+        }
+        @media (max-width: 900px) {
+            .feed-container { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .feed-container { column-count: 1; }
         }
         
         .post-card {
             background: #111114;
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             overflow: hidden;
+            break-inside: avoid;
+            display: inline-block;
+            width: 100%;
         }
         
         .post-header {
@@ -135,7 +146,7 @@
     </nav>
 
     <div class="feed-container">
-        <div style="margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; column-span: all; width: 100%;">
             <h1 class="nexa-title" style="font-size: 32px; margin: 0;">Fan Community</h1>
             <button class="btn-primary share-btn" style="padding: 10px 20px;">Share Generation</button>
         </div>
