@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
             const result = await fal.queue.result("fal-ai/pixverse/swap", {
                 requestId: requestId
             });
-            output = result.data.video ? result.data.video.url : result.data.url;
+            output = result.data.video?.url || result.data.url || result.data.image?.url || null;
         } else if (statusResult.status === 'IN_PROGRESS') {
             normalizedStatus = 'processing';
         } else if (statusResult.status === 'FAILED') {

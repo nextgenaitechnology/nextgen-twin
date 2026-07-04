@@ -17,8 +17,6 @@ exports.handler = async (event, context) => {
             };
         }
 
-        // We use fal.queue.submit for asynchronous processing
-        // Ensure FAL_KEY is set in your Netlify dashboard environment variables
         const result = await fal.queue.submit("fal-ai/pixverse/swap", {
             input: {
                 video_url: video_url,

@@ -359,37 +359,77 @@
                 queueList.prepend(itemDiv);
                 
                 if (task.id) {
-                    const pollStatus = async () => {
-                        try {
-                            const res = await fetch(`/.netlify/functions/status?id=${task.id}`);
-                            const data = await res.json();
-                            
-                            if (data.status === 'succeeded') {
-                                statusDiv.className = 'queue-status status-complete';
-                                statusDiv.textContent = '✅ Done';
-                                
-                                const viewBtn = document.createElement('a');
-                                viewBtn.href = data.output;
-                                viewBtn.target = "_blank";
-                                viewBtn.className = 'queue-action-btn';
-                                viewBtn.style = 'text-decoration:none; display:inline-block; text-align:center;';
-                                viewBtn.textContent = 'View';
-                                itemDiv.appendChild(viewBtn);
-                            } else if (data.status === 'failed' || data.status === 'canceled') {
-                                statusDiv.className = 'queue-status status-failed';
-                                statusDiv.textContent = '❌ Failed';
-                            } else {
-                                statusDiv.className = 'queue-status status-processing';
-                                statusDiv.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Processing...`;
-                                setTimeout(pollStatus, 3000);
-                            }
-                        } catch (err) {
-                            console.error(err);
-                            statusDiv.className = 'queue-status status-failed';
-                            statusDiv.textContent = '❌ Error';
-                        }
+                    const markAsSucceeded = (outputUrl) => {
+                        statusDiv.className = 'queue-status status-complete';
+                        statusDiv.textContent = '✅ Done';
+                        
+                        const videoEl = document.createElement('video');
+                        videoEl.src = outputUrl;
+                        videoEl.autoplay = true;
+                        videoEl.muted = true;
+                        videoEl.loop = true;
+                        videoEl.playsInline = true;
+                        videoEl.className = 'queue-thumb';
+                        videoEl.style.objectFit = 'cover';
+                        thumbDiv.replaceWith(videoEl);
+                        
+                        const viewBtn = document.createElement('a');
+                        viewBtn.href = `media-detail.html?id=${task.id}`;
+                        viewBtn.className = 'queue-action-btn';
+                        viewBtn.style = 'text-decoration:none; display:inline-block; text-align:center;';
+                        viewBtn.textContent = 'View';
+                        itemDiv.appendChild(viewBtn);
                     };
-                    pollStatus();
+
+                    if (task.status === 'succeeded' && task.output) {
+                        markAsSucceeded(task.output);
+                    } else if (task.status === 'failed' || task.status === 'canceled') {
+                        statusDiv.className = 'queue-status status-failed';
+                        statusDiv.textContent = '❌ Failed';
+                    } else {
+                        const pollStatus = async () => {
+                            try {
+                                const res = await fetch(`/.netlify/functions/status?id=${task.id}`);
+                                const data = await res.json();
+                                
+                                if (data.status === 'succeeded') {
+                                    // Save the completed status and output URL back to localStorage
+                                    const currentTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
+                                    const updatedTasks = currentTasks.map(t => {
+                                        if (t.id === task.id) {
+                                            return { ...t, status: 'succeeded', output: data.output };
+                                        }
+                                        return t;
+                                    });
+                                    localStorage.setItem('generationQueue', JSON.stringify(updatedTasks));
+                                    
+                                    markAsSucceeded(data.output);
+                                } else if (data.status === 'failed' || data.status === 'canceled') {
+                                    // Save the failed status back to localStorage
+                                    const currentTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
+                                    const updatedTasks = currentTasks.map(t => {
+                                        if (t.id === task.id) {
+                                            return { ...t, status: 'failed' };
+                                        }
+                                        return t;
+                                    });
+                                    localStorage.setItem('generationQueue', JSON.stringify(updatedTasks));
+
+                                    statusDiv.className = 'queue-status status-failed';
+                                    statusDiv.textContent = '❌ Failed';
+                                } else {
+                                    statusDiv.className = 'queue-status status-processing';
+                                    statusDiv.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Processing...`;
+                                    setTimeout(pollStatus, 3000);
+                                }
+                            } catch (err) {
+                                console.error(err);
+                                statusDiv.className = 'queue-status status-failed';
+                                statusDiv.textContent = '❌ Error';
+                            }
+                        };
+                        pollStatus();
+                    }
                 }
             });
         });

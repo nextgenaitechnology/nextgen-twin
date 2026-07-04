@@ -10703,6 +10703,22 @@
                 }
             }
 
+            // Fallback to the generation queue in localStorage
+            if (!item) {
+                const queueTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
+                const task = queueTasks.find(t => t.id === id);
+                if (task && task.status === 'succeeded' && task.output) {
+                    item = {
+                        title: task.title || 'Generated FaceSwap',
+                        author: task.meta ? task.meta.split('·')[0].replace('Template by ', '').trim() : '@You',
+                        date: new Date().toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'}),
+                        tags: ['FaceSwap', 'Generated', 'Video'],
+                        src: task.output,
+                        type: 'video'
+                    };
+                }
+            }
+
             if (item) {
                 document.title = `${item.title} - NextGen AI`;
                 document.getElementById('pageTitle').textContent = item.title;
@@ -10727,7 +10743,7 @@
                 if (item.type === 'image') {
                     display.innerHTML = `<img src="${item.src}" alt="${item.title}">`;
                 } else if (item.type === 'video') {
-                    display.innerHTML = `<video src="${item.src}" controls autoplay loop></video>`;
+                    display.innerHTML = `<video src="${item.src}" controls autoplay loop playsinline></video>`;
                 }
             } else {
                 document.getElementById('pageTitle').textContent = "Media Not Found";
