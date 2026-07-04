@@ -357,6 +357,40 @@
                 itemDiv.appendChild(statusDiv);
                 
                 queueList.prepend(itemDiv);
+                
+                if (task.id) {
+                    const pollStatus = async () => {
+                        try {
+                            const res = await fetch(`/.netlify/functions/status?id=${task.id}`);
+                            const data = await res.json();
+                            
+                            if (data.status === 'succeeded') {
+                                statusDiv.className = 'queue-status status-complete';
+                                statusDiv.textContent = '✅ Done';
+                                
+                                const viewBtn = document.createElement('a');
+                                viewBtn.href = data.output;
+                                viewBtn.target = "_blank";
+                                viewBtn.className = 'queue-action-btn';
+                                viewBtn.style = 'text-decoration:none; display:inline-block; text-align:center;';
+                                viewBtn.textContent = 'View';
+                                itemDiv.appendChild(viewBtn);
+                            } else if (data.status === 'failed' || data.status === 'canceled') {
+                                statusDiv.className = 'queue-status status-failed';
+                                statusDiv.textContent = '❌ Failed';
+                            } else {
+                                statusDiv.className = 'queue-status status-processing';
+                                statusDiv.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Processing...`;
+                                setTimeout(pollStatus, 3000);
+                            }
+                        } catch (err) {
+                            console.error(err);
+                            statusDiv.className = 'queue-status status-failed';
+                            statusDiv.textContent = '❌ Error';
+                        }
+                    };
+                    pollStatus();
+                }
             });
         });
     </script>
