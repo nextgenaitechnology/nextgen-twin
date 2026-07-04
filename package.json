@@ -1,0 +1,31 @@
+{
+  "name": "next-gen-twin",
+  "version": "1.0.0",
+  "description": "{{synopsis}}",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextgenaitechnology/nextgen-twin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nextgenaitechnology/nextgen-twin/issues"
+  },
+  "homepage": "https://github.com/nextgenaitechnology/nextgen-twin#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "replicate": "^1.4.0"
+  }
+}
