@@ -10864,7 +10864,16 @@
                             video_url: absoluteVideoUrl,
                             image_url: uploadPreview.src
                         })
-                    }).then(res => res.json()).then(data => {
+                    }).then(async res => {
+                        const data = await res.json();
+                        if (!res.ok || data.error) {
+                            throw new Error(data.error || 'Failed to generate video');
+                        }
+                        return data;
+                    }).then(data => {
+                        if (!data.id) {
+                            throw new Error('Server returned OK but no generation ID was provided');
+                        }
                         const newTask = {
                             id: data.id,
                             title: (chkNudify.checked ? 'Nudify + Enhance — ' : 'FaceSwap — ') + (item ? item.title : 'Template Generation'),
@@ -10879,7 +10888,13 @@
                         window.location.href = 'queue.html';
                     }).catch(err => {
                         console.error('Generation error', err);
-                        alert('Error generating video. Make sure server is running.');
+                        alert('API Error: ' + err.message + '\n\nNote: If you are running locally, Netlify does not have access to your video files, or the video URL is a 404 Not Found.');
+                        
+                        // Refund credits
+                        currentBalance += total;
+                        localStorage.setItem('userCredits', currentBalance);
+                        navCreditBalance.textContent = '★ ' + currentBalance;
+
                         generateBtn.textContent = 'Generate Video';
                         generateBtn.style.pointerEvents = 'auto';
                     });

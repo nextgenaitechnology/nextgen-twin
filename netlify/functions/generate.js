@@ -17,6 +17,14 @@ exports.handler = async (event, context) => {
             };
         }
 
+        // Fal.ai requires publicly accessible URLs. Prevent submitting localhost URLs.
+        if (video_url.includes('localhost') || video_url.includes('127.0.0.1')) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({ error: 'Cannot process local video files. Please use Option 1 (Cloud Storage) or configure local uploads.' })
+            };
+        }
+
         const result = await fal.queue.submit("fal-ai/pixverse/swap", {
             input: {
                 video_url: video_url,

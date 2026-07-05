@@ -1,4 +1,6 @@
 *.mp4
+!assets/video_1.mp4
+!assets/video4c4c7265-1a6f-4bf2-9b7d-f1f8bc199bbe (1).mp4
 *.cjs
 *.log
 .agents/

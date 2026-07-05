@@ -392,6 +392,10 @@
                                 const res = await fetch(`/.netlify/functions/status?id=${task.id}`);
                                 const data = await res.json();
                                 
+                                if (!res.ok || data.error) {
+                                    throw new Error(data.error || 'Server error');
+                                }
+                                
                                 if (data.status === 'succeeded') {
                                     // Save the completed status and output URL back to localStorage
                                     const currentTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
@@ -426,6 +430,16 @@
                                 console.error(err);
                                 statusDiv.className = 'queue-status status-failed';
                                 statusDiv.textContent = '❌ Error';
+                                
+                                // Save failed status
+                                const currentTasks = JSON.parse(localStorage.getItem('generationQueue') || '[]');
+                                const updatedTasks = currentTasks.map(t => {
+                                    if (t.id === task.id) {
+                                        return { ...t, status: 'failed', error: err.message };
+                                    }
+                                    return t;
+                                });
+                                localStorage.setItem('generationQueue', JSON.stringify(updatedTasks));
                             }
                         };
                         pollStatus();
