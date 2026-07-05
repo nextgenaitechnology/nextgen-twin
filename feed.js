@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="nexa-btn">${videoData.action}</button>
             </div>
             
-            <!-- Click intercept overlay for app.js routing -->
-            <a href="media-detail.html?id=${videoData.id}" class="nexa-click-overlay"></a>
+            <!-- Click intercept overlay for modal -->
+            <button onclick="window.openFaceSwapModal('${videoData.id}')" class="nexa-click-overlay" style="position: absolute; inset: 0; background: transparent; border: none; cursor: pointer; width: 100%; height: 100%; z-index: 10;"></button>
         `;
         
         return card;
