@@ -40,10 +40,35 @@ document.addEventListener("DOMContentLoaded", () => {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById("modalPhotoPlaceholder").style.display = "none";
-                    const preview = document.getElementById("modalPhotoPreview");
-                    preview.src = e.target.result;
-                    preview.style.display = "block";
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement("canvas");
+                        let width = img.width;
+                        let height = img.height;
+                        const MAX_SIZE = 800; // Resize to max 800px
+
+                        if (width > height && width > MAX_SIZE) {
+                            height *= MAX_SIZE / width;
+                            width = MAX_SIZE;
+                        } else if (height > MAX_SIZE) {
+                            width *= MAX_SIZE / height;
+                            height = MAX_SIZE;
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        // Export as highly compressed JPEG
+                        const resizedDataUrl = canvas.toDataURL("image/jpeg", 0.7);
+
+                        document.getElementById("modalPhotoPlaceholder").style.display = "none";
+                        const preview = document.getElementById("modalPhotoPreview");
+                        preview.src = resizedDataUrl;
+                        preview.style.display = "block";
+                    };
+                    img.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             }
