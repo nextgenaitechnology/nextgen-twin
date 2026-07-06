@@ -82,27 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
             this.disabled = true;
             this.style.opacity = "0.7";
             
-            // Upload to Fal storage
+            // Instead of uploading to a custom backend, use the local data URL.
             try {
-                let imageUrlToUse = "";
-                const falUploadUrl = "https://api.fal.ai/storage/upload";
-                
-                // Get the file
-                const file = photoInput.files[0];
-                
-                if (file) {
-                    const formData = new FormData();
-                    formData.append("file", file);
-                    const res = await fetch("/.netlify/functions/upload", {
-                        method: "POST",
-                        body: formData
-                    });
-                    
-                    if (res.ok) {
-                        const data = await res.json();
-                        imageUrlToUse = data.url;
-                    }
-                }
+                const imageUrlToUse = photoPreview.src;
                 
                 // Submit to backend
                 const generateRes = await fetch("/.netlify/functions/generate", {
