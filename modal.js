@@ -15,7 +15,9 @@ window.openFaceSwapModal = function(id) {
     // Reset photo upload state
     document.getElementById("modalPhotoPreview").style.display = "none";
     document.getElementById("modalPhotoPreview").src = "";
-    document.getElementById("modalPhotoPlaceholder").style.display = "block";
+    if (document.getElementById("modalPhotoPlaceholder")) {
+        document.getElementById("modalPhotoPlaceholder").style.display = "block";
+    }
     document.getElementById("modalPhotoInput").value = "";
     document.getElementById("modalErrorMsg").style.display = "none";
     
@@ -23,7 +25,7 @@ window.openFaceSwapModal = function(id) {
     const swapBtn = document.getElementById("modalSwapBtn");
     swapBtn.dataset.videoId = id;
     swapBtn.dataset.videoSrc = videoData.src;
-    swapBtn.innerHTML = "? Swap My Face Into Video";
+    swapBtn.innerHTML = `Generate <span style="color: #007bff;">★ 30</span>`;
     swapBtn.disabled = false;
     swapBtn.style.opacity = "1";
     
@@ -63,7 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Export as highly compressed JPEG
                         const resizedDataUrl = canvas.toDataURL("image/jpeg", 0.7);
 
-                        document.getElementById("modalPhotoPlaceholder").style.display = "none";
+                        if (document.getElementById("modalPhotoPlaceholder")) {
+                            document.getElementById("modalPhotoPlaceholder").style.display = "none";
+                        }
                         const preview = document.getElementById("modalPhotoPreview");
                         preview.src = resizedDataUrl;
                         preview.style.display = "block";

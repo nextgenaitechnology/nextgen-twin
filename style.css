@@ -3612,3 +3612,77 @@ body {
     filter: drop-shadow(0 0 4px rgba(255, 51, 102, 0.5)) !important;
     transform: translateY(-2px) !important;
 }
+
+/* Playbox UI Overhaul */
+.playbox-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 16px;
+    break-inside: avoid;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.playbox-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+.playbox-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.playbox-overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+.playbox-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    border: 2px solid white;
+}
+.playbox-pill-top {
+    background: #007bff;
+    color: white;
+    font-size: 11px; font-weight: bold;
+    padding: 4px 12px; border-radius: 20px;
+    text-transform: uppercase;
+    position: absolute; left: 50%; transform: translateX(-50%);
+}
+.playbox-overlay-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px 12px 12px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    text-align: center;
+    z-index: 2;
+}
+.playbox-title {
+    color: white; font-size: 16px; font-weight: 700; margin: 0 0 4px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+.playbox-username {
+    color: #ccc; font-size: 12px; margin: 0 0 12px 0;
+}
+.playbox-pill-bottom {
+    background: rgba(0, 123, 255, 0.2);
+    color: #4da3ff; border: 1px solid #007bff;
+    font-size: 11px; font-weight: bold;
+    padding: 4px 12px; border-radius: 20px;
+    display: inline-block;
+}
+.playbox-click-overlay {
+    position: absolute; inset: 0;
+    background: transparent; border: none; cursor: pointer;
+    width: 100%; height: 100%; z-index: 10;
+}

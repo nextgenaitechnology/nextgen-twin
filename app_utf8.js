@@ -135,7 +135,7 @@ function bindEvents() {
     });
 
     // Creator Tags
-    document.querySelectorAll('.creator-tag').forEach(tag => { tag.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); window.location.href = 'creator.html'; }); }); document.querySelectorAll('.masonry-item, .card').forEach(item => { item.addEventListener('click', (e) => { const interactive = e.target.closest('button, .btn-primary, .action-btn, a, input, select, textarea, label, .creator-tag, .pill, .queue-action-btn, [class*="-btn"], [class*="btn-"], [onclick], summary, video, audio, area, [contenteditable]'); if (interactive) return; const validPart = e.target.closest('img, .masonry-img, .masonry-content, .masonry-title, .vip-tags, .vip-tag'); if (e.target !== item && !validPart) return; window.location.href = 'media-detail.html?id=collection_item'; }); });
+    document.querySelectorAll('.creator-tag').forEach(tag => { tag.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); window.location.href = 'creator.html'; }); });
 
     // Media Routing (Phase 3)
     

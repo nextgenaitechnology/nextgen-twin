@@ -10,25 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createCard(videoData) {
         const card = document.createElement('div');
-        card.className = 'nexa-card masonry-item'; // Added masonry-item for global click handler
+        card.className = 'playbox-card'; 
         
-        // Use video if it's an mp4, otherwise image. Though all are .mp4 in our data.
         let mediaHtml = `
-            <video class="nexa-media lazy-video" loop muted playsinline autoplay src="${videoData.src}"></video>
+            <video class="playbox-media" loop muted playsinline autoplay src="${videoData.src}" poster="assets/placeholder.jpg"></video>
         `;
 
         card.innerHTML = `
             ${mediaHtml}
-            <div class="nexa-author-thumb" style="background-image: url('${videoData.profile}');"></div>
-            
-            <div class="nexa-info-overlay">
-                <h3 class="nexa-title">${videoData.title}</h3>
-                <p class="nexa-username">${videoData.username}</p>
-                <button class="nexa-btn">${videoData.action}</button>
+            <div class="playbox-overlay-top">
+                <div class="playbox-avatar" style="background-image: url('${videoData.profile}');"></div>
+                <div class="playbox-pill-top">${videoData.action}</div>
             </div>
             
-            <!-- Click intercept overlay for modal -->
-            <button onclick="window.openFaceSwapModal('${videoData.id}')" class="nexa-click-overlay" style="position: absolute; inset: 0; background: transparent; border: none; cursor: pointer; width: 100%; height: 100%; z-index: 10;"></button>
+            <div class="playbox-overlay-bottom">
+                <h3 class="playbox-title">${videoData.title}</h3>
+                <p class="playbox-username">${videoData.username}</p>
+                <div class="playbox-pill-bottom">GENERATE ★ 30</div>
+            </div>
+            
+            <button onclick="window.openFaceSwapModal('${videoData.id}')" class="playbox-click-overlay"></button>
         `;
         
         return card;
