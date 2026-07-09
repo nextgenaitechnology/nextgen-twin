@@ -29,6 +29,25 @@ exports.handler = async (event, context) => {
                 requestId: requestId
             });
             output = result.data.video?.url || result.data.url || result.data.image?.url || null;
+            if (output) {
+                let isValidMp4 = false;
+                try {
+                    const urlObj = new URL(output);
+                    if (urlObj.pathname.toLowerCase().endsWith('.mp4')) {
+                        isValidMp4 = true;
+                    }
+                } catch (e) {
+                    if (output.toLowerCase().endsWith('.mp4')) {
+                        isValidMp4 = true;
+                    }
+                }
+                if (!isValidMp4) {
+                    normalizedStatus = 'failed';
+                    output = null;
+                }
+            } else {
+                normalizedStatus = 'failed';
+            }
         } else if (statusResult.status === 'IN_PROGRESS') {
             normalizedStatus = 'processing';
         } else if (statusResult.status === 'FAILED') {

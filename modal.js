@@ -1,7 +1,20 @@
 
 window.openFaceSwapModal = function(id) {
-    const videoData = window.exploreVideos.find(v => v.id === id);
-    if (!videoData) return;
+    let videoData = null;
+    if (window.exploreVideos && Array.isArray(window.exploreVideos)) {
+        videoData = window.exploreVideos.find(v => v.id === id);
+        if (!videoData) {
+            // Fallback to first video if ID doesn't exist (e.g. from community.html hardcoded links)
+            videoData = window.exploreVideos[0];
+        }
+    }
+    
+    if (!videoData) {
+        videoData = {
+            title: "Template Video",
+            src: "assets/video_1.mp4"
+        };
+    }
     
     // Set up modal content
     document.getElementById("modalTemplateTitle").textContent = videoData.title;
@@ -34,7 +47,7 @@ window.openFaceSwapModal = function(id) {
 };
 
 // Handle Photo Upload Preview
-document.addEventListener("DOMContentLoaded", () => {
+function setupModal() {
     const photoInput = document.getElementById("modalPhotoInput");
     if(photoInput) {
         photoInput.addEventListener("change", function(e) {
@@ -132,12 +145,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
                 // Add to queue and redirect
+                const templateTitle = document.getElementById("modalTemplateTitle").textContent;
+                const thumbUrl = photoPreview ? photoPreview.src : "";
+                
+                const videoId = this.dataset.videoId;
+                let videoData = null;
+                if (window.exploreVideos && Array.isArray(window.exploreVideos)) {
+                    videoData = window.exploreVideos.find(v => v.id === videoId);
+                    if (!videoData) {
+                        videoData = window.exploreVideos[0];
+                    }
+                }
+                
+                let username = "@delulu";
+                if (videoData && videoData.username) {
+                    username = videoData.username;
+                }
+                if (!username.startsWith('@')) {
+                    username = '@' + username;
+                }
+
                 const task = {
                     id: generateData.id,
-                    templateTitle: document.getElementById("modalTemplateTitle").textContent,
+                    templateTitle: templateTitle,
                     templateSrc: videoSrc,
                     status: "queued",
-                    timestamp: Date.now()
+                    timestamp: Date.now(),
+                    title: `FaceSwap — ${templateTitle}`,
+                    meta: `Template by ${username} · Queued`,
+                    thumb: thumbUrl
                 };
                 const queue = JSON.parse(localStorage.getItem("generationQueue") || "[]");
                 queue.push(task);
@@ -154,11 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error(error);
                 errorMsg.textContent = error.message;
                 errorMsg.style.display = "block";
-                this.innerHTML = "? Swap My Face Into Video";
+                this.innerHTML = "★ Swap My Face Into Video";
                 this.disabled = false;
                 this.style.opacity = "1";
             }
         });
     }
-});
+}
+
+if (document.readyState === "interactive" || document.readyState === "complete") {
+    setupModal();
+} else {
+    document.addEventListener("DOMContentLoaded", setupModal);
+}
 

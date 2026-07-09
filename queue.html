@@ -199,7 +199,7 @@
             <a href="collection.html" class="nav-link">Collection</a>
             <a href="top-creators.html" class="nav-link">Top Creators</a>
             <a href="community.html" class="nav-link">Community</a>
-            <a href="studio.html" class="nav-link">Studio</a>
+            
         </div>
         <div class="nav-right">
             <button id="hamburgerBtn" class="hamburger-btn" >☰</button>
@@ -333,17 +333,17 @@
                 
                 const thumbDiv = document.createElement('div');
                 thumbDiv.className = 'queue-thumb';
-                thumbDiv.style.backgroundImage = `url('${task.thumb.replace(/'/g, "\\'")}')`;
+                thumbDiv.style.backgroundImage = `url('${(task.thumb || '').replace(/'/g, "\\'")}')`;
                 
                 const detailsDiv = document.createElement('div');
                 detailsDiv.className = 'queue-details';
                 
                 const h3 = document.createElement('h3');
-                h3.textContent = task.title;
+                h3.textContent = task.title || '';
                 
                 const metaDiv = document.createElement('div');
                 metaDiv.className = 'queue-meta';
-                metaDiv.textContent = task.meta;
+                metaDiv.textContent = task.meta || '';
                 
                 detailsDiv.appendChild(h3);
                 detailsDiv.appendChild(metaDiv);
@@ -461,10 +461,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
             Collection
         </a>
-        <a href="studio.html" class="mobile-nav-item ">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-            Studio
-        </a>
+        
         <a href="community.html" class="mobile-nav-item ">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             Community

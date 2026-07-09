@@ -10740,11 +10740,15 @@
                 tagsContainer.innerHTML = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
                 const display = document.getElementById('mediaDisplay');
+                
+                // Force rendering as a video template, even if the source was an image
+                let videoSrc = item.src;
                 if (item.type === 'image') {
-                    display.innerHTML = `<img src="${item.src}" alt="${item.title}">`;
-                } else if (item.type === 'video') {
-                    display.innerHTML = `<video src="${item.src}" controls autoplay loop playsinline></video>`;
+                    // Use a default template video if the feed item was a static image
+                    videoSrc = 'assets/video_1.mp4'; 
                 }
+                
+                display.innerHTML = `<video src="${videoSrc}" controls autoplay loop playsinline style="max-height: 100%; max-width: 100%; object-fit: contain;"></video>`;
             } else {
                 document.getElementById('pageTitle').textContent = "Media Not Found";
                 document.getElementById('infoTitle').textContent = "N/A";
@@ -10854,7 +10858,10 @@
                     generateBtn.style.pointerEvents = 'none';
                     
                     // Real API call to Netlify Function
-                    const videoPath = item ? item.src : 'assets/video_1.mp4';
+                    let videoPath = item ? item.src : 'assets/video_1.mp4';
+                    if (item && item.type === 'image') {
+                        videoPath = 'assets/video_1.mp4';
+                    }
                     const absoluteVideoUrl = new URL(videoPath, window.location.href).href;
 
                     fetch('/.netlify/functions/generate', {
