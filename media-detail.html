@@ -10864,27 +10864,14 @@
                     }
                     const absoluteVideoUrl = new URL(videoPath, window.location.href).href;
 
-                    // STEP 1: upload the identity photo to get a PUBLIC url.
-                    // fal.ai cannot fetch a base64 "data:" url (uploadPreview.src), so we
-                    // must upload the real file first, then send fal the public url it returns.
-                    (async () => {
-                        const uploadForm = new FormData();
-                        uploadForm.append('file', uploadedFile, (uploadedFile && uploadedFile.name) || 'identity.jpg');
-                        const uploadRes = await fetch('/.netlify/functions/upload', { method: 'POST', body: uploadForm });
-                        const uploadData = await uploadRes.json();
-                        if (!uploadRes.ok || uploadData.error || !uploadData.url) {
-                            throw new Error(uploadData.error || 'Photo upload failed');
-                        }
-                        // STEP 2: start the face-swap job with TWO public urls.
-                        return fetch('/.netlify/functions/generate', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                video_url: absoluteVideoUrl,
-                                image_url: uploadData.url
-                            })
-                        });
-                    })().then(async res => {
+                    fetch('/.netlify/functions/generate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            video_url: absoluteVideoUrl,
+                            image_url: uploadPreview.src
+                        })
+                    }).then(async res => {
                         const data = await res.json();
                         if (!res.ok || data.error) {
                             throw new Error(data.error || 'Failed to generate video');
